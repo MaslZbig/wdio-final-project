@@ -2,6 +2,7 @@
   "name": "wdio-final-project",
   "type": "module",
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@wdio/cli": "^9.12.4",
     "@wdio/local-runner": "^9.12.4",
     "@wdio/mocha-framework": "^9.12.3",
