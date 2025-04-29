@@ -78,16 +78,26 @@ describe('Verify user can add product to cart', () => {
         const cartButton = $('[data-test="nav-cart"]')
         console.log('cartButton');
         await cartButton.click()
-        console.log('cartButton click');
-        
+        //console.log('cartButton click');
+
+       /* const checkoutHeading = await $('[data-test="product-title"]') 
+        await checkoutHeading.waitForDisplayed({ timeout: 5000 })*/
 
         const cartUrl = await browser.getUrl()
         expect(cartUrl).toContain('https://practicesoftwaretesting.com/checkout')
 
-        const productQuantity = $('[data-test="product-quantity]')
+        const productQuantity = $('[data-test="product-quantity"]')
         await productQuantity.waitForDisplayed()
-        const quantityValue = await productQuantity.getText()
+        const quantityValue = await productQuantity.getValue()
         expect(quantityValue).toBe("1")
- 
+
+        const productName = await $('[data-test="product-title"]') 
+        let name = await productName.getText() 
+        name = name.replace(/\u00A0/g, '').trim() 
+        expect(name).toEqual('Slip Joint Pliers')
+
+        const proceed1Button = $('[data-test="proceed-1"]')
+        const isVisible = await proceed1Button.isDisplayed()
+        expect(isVisible).toBe(true)
     })
 })
