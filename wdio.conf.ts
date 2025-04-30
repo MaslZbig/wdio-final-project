@@ -1,4 +1,9 @@
 export const config: WebdriverIO.Config = {
+    before: async function () {
+        await browser.setWindowSize(1920, 1080) // або більший розмір, якщо треба
+    },
+    
+    baseUrl: "https://practicesoftwaretesting.com",
     //
     // ====================
     // Runner Configuration
@@ -90,6 +95,7 @@ export const config: WebdriverIO.Config = {
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
+    waitforInterval: 500,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
