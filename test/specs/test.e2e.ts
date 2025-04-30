@@ -17,7 +17,7 @@ describe('Verify login with valid credentials', () => {
         await expect(pageTitle).toHaveText('My account');
 
         const navMenu = await $('[data-test="nav-menu"]')
-        await expect(navMenu).toBeDisabled
+        await expect(navMenu).toBeDisplayed
         await expect(navMenu).toHaveText('Jane Doe')
 
     })
